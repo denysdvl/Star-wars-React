@@ -9,7 +9,7 @@ export default class PersonDetalls extends Component {
     <div className="card person-detalls m-4">
         <div className='row no-gutters'>
             <div className="col-md-4 col-sm-12 p-2">
-                 <img src="https://starwars-visualguide.com/assets/img/characters/3.jpg" 
+                 <img alt="..." src="https://starwars-visualguide.com/assets/img/characters/3.jpg" 
                 className="card-img person-image  rounded"/>
             </div>
         <div className="col-md-8 col-sm-12">

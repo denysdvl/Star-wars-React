@@ -20,7 +20,8 @@ super();
 this.onPlanetLoaded = (planet) =>{
   this.setState({
     planet,
-    loading: false
+    loading: false,
+    error: false
   });
 };
 
@@ -47,7 +48,7 @@ this.setState({
 
     const checkData = !(loading || error)
 
-    const errorMess = error ? <Error404/> : null
+    const errorMess = error ? <Error404/> : null;
     const spinner = loading ? <Spinner/> : null;
     const content = checkData ? <PlanetView  planet={planet}/> : null;
 

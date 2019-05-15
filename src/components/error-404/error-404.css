@@ -1,0 +1,17 @@
+ .video-error{
+    width: 150px;
+    border-width: 0px;
+}
+.star-wars {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    color: #feda4a;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 100%;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 150%;
+    perspective: 400px;
+    text-align: justify;
+  }

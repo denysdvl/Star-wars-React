@@ -6,7 +6,7 @@ export default class ItemList extends Component {
 
   render() {
     return (
-<ul className="list-group mx-4">
+<ul className="list-group ">
   <li className="list-group-item"> 
   Darth Vader
   </li>

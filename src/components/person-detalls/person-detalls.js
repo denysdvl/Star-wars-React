@@ -6,7 +6,7 @@ export default class PersonDetalls extends Component {
 
   render() {
     return (
-    <div className="card person-detalls m-4">
+    <div className="card person-detalls">
         <div className='row no-gutters'>
             <div className="col-md-4 col-sm-12 p-2">
                  <img alt="..." src="https://starwars-visualguide.com/assets/img/characters/3.jpg" 

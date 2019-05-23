@@ -3,7 +3,7 @@
 This project has the opportunity to view the planets, star ships,
 and characters that were in Star Wars with their minimal description.
 There is also a block in which there are random planets. 
-***
+
 Many thanks to [SWAPI resource](https://swapi.co/) for their API.
 
 **The project is still at the writing stage.**

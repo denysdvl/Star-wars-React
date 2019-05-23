@@ -6,6 +6,12 @@ import Error404 from "../error-404/"
 import './random-planet.css';
 
 export default class RandomPlanet extends Component {
+  componentDidMount(){
+    console.log("componentDidMount()")
+  }
+  componentDidUpdate(){
+    console.log("componentDidUpdate()")
+  }
 constructor(){
 super();
    
@@ -33,14 +39,14 @@ this.setState({
 }
 
  this.updatePlanet = () => {
-   const id = Math.floor(Math.random()*18) + 2;
+   const id = Math.floor(Math.random()*18) + 2231;
    this.swapiService
    .getPlanets(id)
    .then(this.onPlanetLoaded)
    .catch(this.onError);
  };
  
- setInterval(this.updatePlanet,3000);
+ setInterval(this.updatePlanet,2500);
 }
 
   render() {

@@ -75,6 +75,7 @@ export default class SwapiService {
               eyeColor: person.eyeColor
             };
           };
+          
     }
 }
 // const swapi = new SwapiService();

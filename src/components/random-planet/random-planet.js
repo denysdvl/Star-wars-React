@@ -8,7 +8,7 @@ import './random-planet.css';
 export default class RandomPlanet extends Component {
   componentDidMount(){
     this.updatePlanet();
-    this.interval = setInterval(this.updatePlanet, 3000);
+    this.interval = setInterval(this.updatePlanet, 7000);
   }
   componentWillUnmount() {
     clearInterval(this.interval);
@@ -36,8 +36,8 @@ this.onError = (err) => {
 this.setState({
   loading: false,
   error: true
-})
-}
+});
+};
 
  this.updatePlanet = () => {
    const id = Math.floor(Math.random()*18) + 2;

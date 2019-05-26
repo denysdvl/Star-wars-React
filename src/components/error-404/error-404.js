@@ -12,8 +12,8 @@ const Error404 = () => {
    <div className="col-sm-12 col-md-auto"
     className="star-wars">
    <span className="mt-5 ml-3">
-        something has gone terribly wrong to the planet <br/>
-        (but we already sent droids to deal with this.)
+         Something went wrong in the universe  <br/>
+        (but we've already sent droids to work it out.)
       </span>
       </div>
     </div>

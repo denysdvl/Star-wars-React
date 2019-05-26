@@ -21,16 +21,15 @@ export default class ItemList extends Component {
           peopleList
         });
       });
-  }
+  };
   }
   componentDidMount(){
     this.updataPerson();
-    console.log(this.updataPerson());
   }
   renderItems(arr) {
     return arr.map(({id, name}) => {
       return (
-        <li className="list-group-item"
+        <li className="list-group-item list-group-item-action"
             key={id}
             onClick={() => this.props.onItemSelected(id)}>
           {name}
@@ -42,7 +41,6 @@ export default class ItemList extends Component {
   render() {
 
     const { peopleList } = this.state;
-console.log(peopleList);
     if (!peopleList) {
       return <Spinner />;
     }

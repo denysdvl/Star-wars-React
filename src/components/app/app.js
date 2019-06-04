@@ -4,17 +4,20 @@ import './app.css';
 
 import Header from '../header';
 import RandomPlanet from '../random-planet';
+import PersonPage from '../person-page'
+import ErrorIndicator from "../error-indicator";
 import ItemList from "../item-list";
 import PersonDetalls from "../person-detalls";
-import Error404 from "../error-404/";
+import SwapiService from "../../services/swapi-service";
 
 export default class App extends Component {
 constructor(){
     super();
+    this.swapiService = new SwapiService();
     this.state = {
         showRandomPlanet: true,
-        hasError: false,
-        idItems: 1
+        idItems: 1,
+        hasError: false
     };
 
     this.toggleRandomPlanet = () =>{
@@ -25,24 +28,14 @@ constructor(){
     this.componentDidCatch = () => {
         this.setState({ hasError: true });
       };
-      this.onIdItems = (id) => {
-        this.setState(() => {
-            return {idItems: id}
-        });
-      };
+     
 }
 
   render(){
-
-      const { idItems } = this.state;
-
-    if (this.state.hasError) {
-        return <div class="row">
-        <div class="col-xs-1 center-block">
-            <Error404/>
-        </div>
-      </div>
-      }
+    const { idItems, hasError } = this.state;
+    if (hasError) {
+        return <ErrorIndicator/>
+        }
       const planet = this.state.showRandomPlanet ? <RandomPlanet/> : null;
 
       return (
@@ -54,16 +47,18 @@ constructor(){
             onClick={this.toggleRandomPlanet}>
             Toggle Random Planet
           </button>
-              <div className="row mx-2">
+            <PersonPage/>
+            <div className="row mx-2">
              
-              <div className="col-xs-12 col-lg-6 pb-4">
-              <ItemList onItemSelected={this.onIdItems}/>
-          </div>
-              <div className="col-xs-12 col-lg-6 ">
-              <PersonDetalls idPerson={idItems}/>
-              </div>
-               </div>
-                
+            <div className="col-xs-12 col-lg-6 pb-4">
+            <ItemList onItemSelected={this.onIdItems}
+            getItems={this.swapiService.getAllPlanets}/>
+        </div>
+            <div className="col-xs-12 col-lg-6 ">
+            <PersonDetalls idPerson={idItems}/>
+            </div>
+             </div>
+              
           </div>
           );
   }

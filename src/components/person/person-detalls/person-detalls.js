@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import './person-detalls.css';
-import SwapiService from "../../services/swapi-service";
-import Spinner from "../spinner/";
-import Error404 from "../error-404/";
+import SwapiService from "../../../services/swapi-service";
+import Spinner from "../../spinner/";
+import Error404 from "../../error/error-404";
 
 export default class PersonDetalls extends Component {
   componentDidMount(){

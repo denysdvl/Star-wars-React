@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import SwapiService from "../../services/swapi-service";
 import Spinner from "../spinner/";
-import Error404 from "../error-404/";
+import Error404 from "../error/error-404";
 import './random-planet.css';
 
 export default class RandomPlanet extends Component {

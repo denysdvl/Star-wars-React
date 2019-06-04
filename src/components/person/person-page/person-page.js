@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import ItemList from "../item-list";
+import ItemList from "../../item-list";
 import PersonDetalls from "../person-detalls";
-import ErrorIndicator from "../error-indicator";
-import SwapiService from "../../services/swapi-service";
+import ErrorIndicator from "../../error/error-indicator";
+import SwapiService from "../../../services/swapi-service";
 import "./person-page.css"
 
 export default class PersonPage extends Component {
@@ -39,7 +39,8 @@ constructor(){
             getItems={this.swapiService.getAllPeople}/>
         </div>
             <div className="col-xs-12 col-lg-6 ">
-            <PersonDetalls idPerson={idItems}/>
+            <PersonDetalls idPerson={idItems}
+            />
             </div>
              </div>
               

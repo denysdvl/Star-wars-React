@@ -4,10 +4,10 @@ import './app.css';
 
 import Header from '../header';
 import RandomPlanet from '../random-planet';
-import PersonPage from '../person-page'
-import ErrorIndicator from "../error-indicator";
+import PersonPage from '../person/person-page'
+import ErrorIndicator from "../error/error-indicator";
 import ItemList from "../item-list";
-import PersonDetalls from "../person-detalls";
+import PersonDetalls from "../person/person-detalls";
 import SwapiService from "../../services/swapi-service";
 
 export default class App extends Component {
@@ -58,7 +58,16 @@ constructor(){
             <PersonDetalls idPerson={idItems}/>
             </div>
              </div>
-              
+             <div className="row mx-2">
+             
+             <div className="col-xs-12 col-lg-6 pb-4">
+             <ItemList onItemSelected={this.onIdItems}
+             getItems={this.swapiService.getAllStarships}/>
+         </div>
+             <div className="col-xs-12 col-lg-6 ">
+             <PersonDetalls idPerson={idItems}/>
+             </div>
+              </div>
           </div>
           );
   }

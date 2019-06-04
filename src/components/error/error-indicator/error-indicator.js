@@ -6,7 +6,7 @@ import errorPng from './error-indicator.png';
 
 const ErrorIndicator = () => {
   return (
-    <div className="justify-content-center error-indicator">
+    <div className="justify-content-center error-indicator my-4">
     <img src={errorPng} alt="error png" className="video-error"/>
     <span className="star-wars">
          Something went wrong in the universe  <br/>

@@ -25,12 +25,15 @@ export default class ItemList extends Component {
     this.updataPerson();
   }
   renderItems(arr) {
-    return arr.map(({id, name}) => {
+    return arr.map((item) => {
+      const { id } = item;
+      const label = this.props.renderItem(item);
       return (
         <li className="list-group-item list-group-item-action"
             key={id}
             onClick={() => this.props.onItemSelected(id)}>
-          {name}
+         {label}<br/>
+         
         </li>
       );
     });
@@ -40,7 +43,7 @@ export default class ItemList extends Component {
 
     const { itemList } = this.state;
     if (!itemList) {
-      return <Spinner />;
+      return <Spinner/>;
     }
 
     const items = this.renderItems(itemList);

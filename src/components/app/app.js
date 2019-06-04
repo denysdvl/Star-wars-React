@@ -42,33 +42,41 @@ constructor(){
           <div>
               <Header/>
               { planet }
+
               <button
             className="m-4 btn btn-warning btn-lg"
             onClick={this.toggleRandomPlanet}>
             Toggle Random Planet
           </button>
+
             <PersonPage/>
-            <div className="row mx-2">
+
+            {/* <div className="row mx-2">
              
             <div className="col-xs-12 col-lg-6 pb-4">
             <ItemList onItemSelected={this.onIdItems}
-            getItems={this.swapiService.getAllPlanets}/>
+            getItems={this.swapiService.getAllPlanets}
+            renderItem={({name, diameter}) =>
+            <span>{name} <span>(Diameter : {diameter})</span></span>}/>
         </div>
             <div className="col-xs-12 col-lg-6 ">
             <PersonDetalls idPerson={idItems}/>
             </div>
              </div>
+
+
              <div className="row mx-2">
              
              <div className="col-xs-12 col-lg-6 pb-4">
              <ItemList onItemSelected={this.onIdItems}
-             getItems={this.swapiService.getAllStarships}/>
+             getItems={this.swapiService.getAllStarships}
+             renderItem={({name, model}) => `${name} (${model})`}/>
          </div>
              <div className="col-xs-12 col-lg-6 ">
              <PersonDetalls idPerson={idItems}/>
              </div>
-              </div>
-          </div>
+              </div> */}
+          </div> 
           );
   }
 }

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import SwapiService from "../../services/swapi-service";
 import Spinner from "../spinner/";
 import Error404 from "../error/error-404";
+import ErrorWrapping from "../error/error-wrapping"
 import './random-planet.css';
 
 export default class RandomPlanet extends Component {
@@ -60,12 +61,13 @@ this.setState({
     const content = checkData ? <PlanetView  planet={planet}/> : null;
 
     return (
-      <div className="random-planet jumbotron rounded mx-4 mb-0">
+      <ErrorWrapping>
+        <div className="random-planet jumbotron rounded mx-4 mb-0">
       {errorMess}
       {spinner}
       {content}
        </div>
-
+      </ErrorWrapping>
     );
   } 
 }

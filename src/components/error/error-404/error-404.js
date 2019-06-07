@@ -9,8 +9,7 @@ const Error404 = () => {
     <div className="col-sm-12 col-md-auto">
     <img src={errorGif} alt="error gif" className="video-error"/>
    </div>
-   <div className="col-sm-12 col-md-auto"
-    className="star-wars">
+   <div className="col-sm-12 col-md-auto star-wars">
    <span className="mt-5 ml-3">
          Something went wrong in the universe  <br/>
         (but we've already sent droids to work it out.)

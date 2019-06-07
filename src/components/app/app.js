@@ -4,10 +4,8 @@ import './app.css';
 
 import Header from '../header';
 import RandomPlanet from '../random-planet';
-import PersonPage from '../person/person-page'
-import ErrorIndicator from "../error/error-indicator";
-import ItemList from "../item-list";
-import PersonDetalls from "../person/person-detalls";
+import PersonPage from '../person-page'
+import ErrorWrapping from "../error/error-wrapping"
 import SwapiService from "../../services/swapi-service";
 
 export default class App extends Component {
@@ -16,30 +14,21 @@ constructor(){
     this.swapiService = new SwapiService();
     this.state = {
         showRandomPlanet: true,
-        idItems: 1,
-        hasError: false
     };
 
     this.toggleRandomPlanet = () =>{
         this.setState((state) => {
             return {showRandomPlanet: !state.showRandomPlanet};
         });
-    };
-    this.componentDidCatch = () => {
-        this.setState({ hasError: true });
-      };
-     
+    };    
 }
 
   render(){
-    const { idItems, hasError } = this.state;
-    if (hasError) {
-        return <ErrorIndicator/>
-        }
       const planet = this.state.showRandomPlanet ? <RandomPlanet/> : null;
 
       return (
-          <div>
+<ErrorWrapping>
+<div>
               <Header/>
               { planet }
 
@@ -48,35 +37,10 @@ constructor(){
             onClick={this.toggleRandomPlanet}>
             Toggle Random Planet
           </button>
-
             <PersonPage/>
-
-            {/* <div className="row mx-2">
-             
-            <div className="col-xs-12 col-lg-6 pb-4">
-            <ItemList onItemSelected={this.onIdItems}
-            getItems={this.swapiService.getAllPlanets}
-            renderItem={({name, diameter}) =>
-            <span>{name} <span>(Diameter : {diameter})</span></span>}/>
-        </div>
-            <div className="col-xs-12 col-lg-6 ">
-            <PersonDetalls idPerson={idItems}/>
-            </div>
-             </div>
-
-
-             <div className="row mx-2">
-             
-             <div className="col-xs-12 col-lg-6 pb-4">
-             <ItemList onItemSelected={this.onIdItems}
-             getItems={this.swapiService.getAllStarships}
-             renderItem={({name, model}) => `${name} (${model})`}/>
-         </div>
-             <div className="col-xs-12 col-lg-6 ">
-             <PersonDetalls idPerson={idItems}/>
-             </div>
-              </div> */}
           </div> 
+</ErrorWrapping>
+         
           );
   }
 }

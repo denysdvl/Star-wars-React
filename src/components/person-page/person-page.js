@@ -28,12 +28,18 @@ constructor(){
 }
 
     render(){
-        const { idItems} = this.state;
-        const {getPerson , getStarships, getImgPerson, getImgStarships} = this.swapiService
+        const { idItems, } = this.state;
+        const {getPerson,getAllStarships,getAllPeople , getStarships, getImgPerson, getImgStarships} = this.swapiService
         const itemList = (
-            <ItemList onItemSelected={this.onIdItems}
-            getItems={this.swapiService.getAllPeople}
-            renderItem={({name, birthYear}) => `${name} (${birthYear})`}/>
+            <ItemList
+        onItemSelected={this.onIdItems}
+        getData={this.swapiService.getAllStarships}>
+
+        {(i) => (
+          `${i.name}`
+        )}
+
+      </ItemList>
         );
         const personDetalls = (
             <ErrorWrapping>
@@ -63,7 +69,7 @@ constructor(){
        
         return(
             <ErrorWrapping>
-              <Row left={starshipDetalls} right={personDetalls}/>  
+              <Row left={personDetalls} right={itemList}/>  
             </ErrorWrapping>     
         );
     }

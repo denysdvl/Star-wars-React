@@ -87,7 +87,7 @@ const {item, error, loading, image} = this.state;
   }
 }
 const ItemViev = ({item, imageUrl, bodyItem }) => {
-  const { id, name} = item;
+  const {  name} = item;
     return (
   <div className='row no-gutters'>
           <div className="col-md-4 col-sm-12 p-2">
@@ -97,7 +97,7 @@ const ItemViev = ({item, imageUrl, bodyItem }) => {
           </div>
       <div className="col-md-8 col-sm-12">
       <div className="card-body">
-        <h4>{name} {id}</h4>
+        <h4>{name}</h4>
         <ul className="list-group list-group-flush">
          {
            React.Children.map(bodyItem, (chilld)=>{

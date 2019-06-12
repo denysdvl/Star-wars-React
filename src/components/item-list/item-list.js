@@ -1,7 +1,5 @@
 import React from 'react';
 
-import {  wrappingDate } from '../hoc-data';
-import SwapiService from "../../services/swapi-service";
 import './item-list.css';
 
 const ItemList = (props) => {
@@ -27,6 +25,4 @@ const ItemList = (props) => {
   );
 };
 
-const { getAllPeople } = new SwapiService();
-
-export default wrappingDate(ItemList, getAllPeople);
+export default ItemList;

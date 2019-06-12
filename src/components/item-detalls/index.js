@@ -1,4 +1,4 @@
-import ItemDetalls ,{ Record } from "./item-detalls";
-
-export default ItemDetalls;
-export { Record };
+import { Record,
+    ItemViev} from "./item-detalls";
+export { Record,
+    ItemViev};

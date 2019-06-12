@@ -58,7 +58,10 @@ export default class SwapiService {
                 name: planet.name,
                 population: planet.population,
                 rotationPeriod: planet.rotation_period,
-                diameter: planet.diameter
+                diameter: planet.diameter,
+                climate: planet.climate,
+                gravity: planet.gravity,
+                terrain: planet.terrain
             };
         };
         this._transformStarship = (starship)=> {

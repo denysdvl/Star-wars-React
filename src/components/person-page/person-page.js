@@ -9,7 +9,7 @@ import {
     StarshipsList,
     PersonDetalls,
     PlanetDetalls,
-    StarshipsDetalls } from '../detalls-components/'
+    StarshipsDetalls } from '../helpe-components'
 
 export default class PersonPage extends Component {
     
@@ -27,19 +27,41 @@ constructor(){
 }
     render(){
         const { idItems, } = this.state;
-        const itemList = (
+        const itemList1 = (
             <PersonList
             onItemSelected={this.onIdItems}/>);
-        const personDetalls = (
+        const personDetalls1 = (
             <ErrorWrapping>
             <PersonDetalls idItem={idItems}/>
+            </ErrorWrapping>
+            
+        );
+
+        const itemList12 = (
+            <PlanetList
+            onItemSelected={this.onIdItems}/>);
+        const personDetalls12 = (
+            <ErrorWrapping>
+            <PlanetDetalls idItem={idItems}/>
+            </ErrorWrapping>
+            
+        );
+
+        const itemList3 = (
+            <StarshipsList
+            onItemSelected={this.onIdItems}/>);
+        const personDetalls3 = (
+            <ErrorWrapping>
+            <StarshipsDetalls idItem={idItems}/>
             </ErrorWrapping>
             
         );
               
         return(
             <ErrorWrapping>
-              <Row left={personDetalls} right={itemList}/>  
+              <Row left={personDetalls1} right={itemList1}/>  
+              <Row left={personDetalls12} right={itemList12}/> 
+              <Row left={personDetalls3} right={itemList3}/> 
             </ErrorWrapping>     
         );
     }

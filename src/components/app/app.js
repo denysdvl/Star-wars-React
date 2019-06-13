@@ -7,6 +7,7 @@ import RandomPlanet from '../random-planet';
 import PersonPage from '../person-page'
 import ErrorWrapping from "../error/error-wrapping"
 import SwapiService from "../../services/swapi-service";
+import { SwapiServiceProvider } from '../swapi-service-context';
 
 export default class App extends Component {
 constructor(){
@@ -21,26 +22,26 @@ constructor(){
             return {showRandomPlanet: !state.showRandomPlanet};
         });
     };    
-}
+};
 
   render(){
-      const planet = this.state.showRandomPlanet ? <RandomPlanet/> : null;
+      const planet = this.state.showRandomPlanet ?
+      <RandomPlanet/> : null;
 
-      return (
+  return (
 <ErrorWrapping>
-<div>
-              <Header/>
-              { planet }
-
-              <button
-            className="m-4 btn btn-warning btn-lg"
-            onClick={this.toggleRandomPlanet}>
-            Toggle Random Planet
-          </button>
-            <PersonPage/>
-          </div> 
-</ErrorWrapping>
-         
-          );
-  }
-}
+  <SwapiServiceProvider value={this.swapiService}>
+    <div>
+    <Header/>
+    { planet }
+  <button
+    className="m-4 btn btn-warning btn-lg"
+    onClick={this.toggleRandomPlanet}>
+    Toggle Random Planet
+    </button>
+    <PersonPage/> 
+    </div>
+</SwapiServiceProvider>
+</ErrorWrapping>);
+  };
+};

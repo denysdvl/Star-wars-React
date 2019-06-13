@@ -1,33 +1,32 @@
 import React from 'react';
 import WrappingDetalls from "../hoc-data/wrapping-detalls";
-import SwapiService from "../../services/swapi-service";
 import {Record} from "../item-detalls/item-detalls";
-
-const swapiService = new SwapiService();
-
-const {
-    getPerson,
-    getStarships,
-    getImgPerson,
-    getImgStarships,
-    getPlanets,
-    getImgPlanets
-} = swapiService
+import { SwapiServiceConsumer } from '../swapi-service-context';
 
 
 const PersonDetalls = ({idItem}) => {
     return(
+ <SwapiServiceConsumer>{
+     ({getImgPerson, getPerson}) =>{
+         return(
     <WrappingDetalls
     imageUrl={getImgPerson}
     idItem={idItem}
     getItems={getPerson}
     >
-        <Record field="gender" label="Gender:"/>
-        <Record field="birthYear" label="Birth Year:"/>
-        <Record field="eyeColor" label="Eye Color:"/>
-    </WrappingDetalls>)};
+    <Record field="gender" label="Gender:"/>
+    <Record field="birthYear" label="Birth Year:"/>
+    <Record field="eyeColor" label="Eye Color:"/>
+    </WrappingDetalls>
+         );}
+ }
+ </SwapiServiceConsumer>
+   );};
 
 const PlanetDetalls = ({idItem}) => {
+    return(
+        <SwapiServiceConsumer>{
+            ({getImgPlanets, getPlanets}) =>{
     return(
     <WrappingDetalls
     imageUrl={getImgPlanets}
@@ -38,8 +37,16 @@ const PlanetDetalls = ({idItem}) => {
         <Record field="climate" label="Climate:"/>
         <Record field="gravity" label="Gravity:"/>
         <Record field="terrain" label="Terrain:"/>
-    </WrappingDetalls>)};
+        </WrappingDetalls>
+         );}
+ }
+ </SwapiServiceConsumer>
+   );};
+
 const StarshipsDetalls = ({idItem}) => {
+    return(
+        <SwapiServiceConsumer>{
+            ({getImgStarships, getStarships}) =>{
     return(
     <WrappingDetalls
     imageUrl={getImgStarships}
@@ -49,7 +56,11 @@ const StarshipsDetalls = ({idItem}) => {
         <Record field="model" label="Model:"/>
         <Record field="starshipClass" label="Starship Class:"/>
         <Record field="cargoCapacity" label="Cargo Capacity:"/>
-    </WrappingDetalls>)};
+        </WrappingDetalls>
+         );}
+ }
+ </SwapiServiceConsumer>
+   );};
 export {
     PersonDetalls,
     PlanetDetalls,

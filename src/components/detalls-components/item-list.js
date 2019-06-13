@@ -14,9 +14,26 @@ const {
     getAllPeople
 } = swapiService
 
-const PersonList = wrappingDate(ItemList, getAllPeople);
-const PlanetList = wrappingDate(ItemList, getAllPlanets);;
-const StarshipsList = wrappingDate(ItemList, getAllStarships);;
+const withChildFunction = (Wrapped, fn) => {
+    return (props) => {
+        return (
+            <Wrapped {...props}>
+            {fn}
+          </Wrapped>
+        )
+    };
+};
+const renderName = ({name}) => <span> { name} </span>;
+
+const PersonList = wrappingDate(
+    withChildFunction(ItemList, renderName),
+    getAllPeople);
+const PlanetList = wrappingDate(
+    withChildFunction(ItemList, renderName),
+    getAllPlanets);;
+const StarshipsList = wrappingDate(
+    withChildFunction(ItemList, renderName),
+    getAllStarships);;
 export {
     PersonList,
     PlanetList,

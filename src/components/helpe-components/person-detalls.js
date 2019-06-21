@@ -4,19 +4,20 @@ import { WrappedSwapiService } from '../hoc-data'
 import {Record} from "../item-detalls/item-detalls";;
 
 
-const PersonDetalls = ({idItem, swapiService}) => {
-const {getImgPerson, getPerson} = swapiService;
+const PersonDetalls = (props) => {
          return(
-    <WrappingDetalls
-    imageUrl={getImgPerson}
-    idItem={idItem}
-    getItems={getPerson}
-    >
+    <WrappingDetalls {...props} >
     <Record field="gender" label="Gender:"/>
     <Record field="birthYear" label="Birth Year:"/>
     <Record field="eyeColor" label="Eye Color:"/>
     </WrappingDetalls>
          );
         };
+const mapMethodsToProps = (swapiService) => {
+     return{
+          imageUrl: swapiService.getImgPerson,
+          getItems: swapiService.getPerson
+     } 
+}
 
-export default WrappedSwapiService(PersonDetalls);
+export default WrappedSwapiService(PersonDetalls, mapMethodsToProps);

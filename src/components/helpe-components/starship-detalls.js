@@ -5,17 +5,20 @@ import { WrappedSwapiService } from '../hoc-data'
 
 
 
-const StarshipsDetalls = ({idItem, swapiService}) => {
-    const {getImgStarships, getStarships} =swapiService
+const StarshipsDetalls = (props) => {
     return(
-    <WrappingDetalls
-    imageUrl={getImgStarships}
-    idItem={idItem}
-    getItems={getStarships}
-    >
+    <WrappingDetalls {...props} >
         <Record field="model" label="Model:"/>
         <Record field="starshipClass" label="Starship Class:"/>
         <Record field="cargoCapacity" label="Cargo Capacity:"/>
         </WrappingDetalls>
          );};
-export default WrappedSwapiService(StarshipsDetalls);
+
+         const mapMethodsToProps = (swapiService) => {
+            return{
+                 imageUrl: swapiService.getImgStarships,
+                 getItems: swapiService.getStarships
+            } 
+       }
+
+export default WrappedSwapiService(StarshipsDetalls, mapMethodsToProps);

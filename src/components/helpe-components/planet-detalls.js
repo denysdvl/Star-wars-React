@@ -1,17 +1,12 @@
 import React from 'react';
-import {WrappingDetalls} from "../hoc-data";
+import {WrappingDetalls,WrappedSwapiService} from "../hoc-data";
 import {Record} from "../item-detalls/item-detalls";
-import { WrappedSwapiService } from '../hoc-data'
 
 
-const PlanetDetalls = ({idItem, swapiService}) => {
-   const {getImgPlanets, getPlanets} =swapiService
+
+const PlanetDetalls = (props) => {
     return(
-    <WrappingDetalls
-    imageUrl={getImgPlanets}
-    idItem={idItem}
-    getItems={getPlanets}
-    >
+    <WrappingDetalls {...props}>
         <Record field="population" label="Population:"/>
         <Record field="climate" label="Climate:"/>
         <Record field="gravity" label="Gravity:"/>
@@ -19,4 +14,11 @@ const PlanetDetalls = ({idItem, swapiService}) => {
         </WrappingDetalls>
          );};
 
-export default WrappedSwapiService(PlanetDetalls);
+         const mapMethodsToProps = (swapiService) => {
+            return{
+                 imageUrl: swapiService.getImgPlanets,
+                 getItems: swapiService.getPlanets
+            } 
+       }
+
+export default WrappedSwapiService(PlanetDetalls, mapMethodsToProps);

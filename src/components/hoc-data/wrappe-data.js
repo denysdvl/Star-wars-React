@@ -4,7 +4,7 @@ import React, {
 import Spinner from '../spinner';
 import ErrorWrapping from '../error/error-wrapping';
 
-const wrappingDate = (View, getData) => {
+const wrappingDate = (View) => {
   return class extends Component {
 
     state = {
@@ -12,7 +12,7 @@ const wrappingDate = (View, getData) => {
     };
 
     componentDidMount() {
-      getData()
+      this.props.getData()
         .then((data) => {
           this.setState({
             data

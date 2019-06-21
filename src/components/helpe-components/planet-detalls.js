@@ -2,8 +2,6 @@ import React from 'react';
 import {WrappingDetalls,WrappedSwapiService} from "../hoc-data";
 import {Record} from "../item-detalls/item-detalls";
 
-
-
 const PlanetDetalls = (props) => {
     return(
     <WrappingDetalls {...props}>

@@ -35,7 +35,6 @@ const StarshipsList = WrappedSwapiService(wrappingDate(
     withChildFunction(ItemList, renderName)),
     mapStarshipsMethodsToProps);
 
-
     export {
     PersonList,
     PlanetList,

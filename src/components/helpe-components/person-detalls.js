@@ -3,7 +3,6 @@ import { WrappingDetalls } from "../hoc-data";
 import { WrappedSwapiService } from '../hoc-data'
 import {Record} from "../item-detalls/item-detalls";;
 
-
 const PersonDetalls = (props) => {
          return(
     <WrappingDetalls {...props} >

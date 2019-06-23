@@ -26,7 +26,7 @@ constructor(){
 
   render(){
       const planet = this.state.showRandomPlanet ?
-      <RandomPlanet/> : null;
+      <RandomPlanet updateInterval={5000}/> : null;
 
   return (
 <ErrorWrapping>

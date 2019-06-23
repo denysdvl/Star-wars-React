@@ -1,5 +1,3 @@
-import { async } from "q";
-
 export default class SwapiService {
     constructor() {
         const __apiBase = "https://swapi.co/api";

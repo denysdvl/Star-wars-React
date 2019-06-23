@@ -19,4 +19,4 @@ const PlanetDetalls = (props) => {
             } 
        }
 
-export default WrappedSwapiService(PlanetDetalls, mapMethodsToProps);
+export default WrappedSwapiService(mapMethodsToProps)(PlanetDetalls);

@@ -12,12 +12,16 @@ const wrappingDate = (View) => {
     };
 
     componentDidMount() {
+     this.updata();
+    }
+
+    updata(){
       this.props.getData()
-        .then((data) => {
-          this.setState({
-            data
-          });
+      .then((data) => {
+        this.setState({
+          data
         });
+      });
     }
     render() {
       const {data} = this.state;

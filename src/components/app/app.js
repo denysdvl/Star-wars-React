@@ -4,7 +4,7 @@ import './app.css';
 
 import Header from '../header';
 import RandomPlanet from '../random-planet';
-import PersonPage from '../person-page'
+import {PersonPage, StarshipsPage, PlanetPage} from '../pages'
 import ErrorWrapping from "../error/error-wrapping"
 import SwapiService from "../../services/swapi-service";
 import { SwapiServiceProvider } from '../swapi-service-context';
@@ -40,6 +40,8 @@ constructor(){
     Toggle Random Planet
     </button>
     <PersonPage/> 
+    <StarshipsPage/>
+    <PlanetPage/>
     </div>
 </SwapiServiceProvider>
 </ErrorWrapping>);

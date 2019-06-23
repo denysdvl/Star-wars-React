@@ -19,4 +19,4 @@ const StarshipsDetalls = (props) => {
             } 
        }
 
-export default WrappedSwapiService(StarshipsDetalls, mapMethodsToProps);
+export default WrappedSwapiService(mapMethodsToProps)(StarshipsDetalls);

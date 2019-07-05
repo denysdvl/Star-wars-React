@@ -7,7 +7,7 @@ const Error404 = () => {
   return (
     <div className="container  row">
     <div className="col-sm-12 col-md-auto">
-    <img src={errorGif} alt="error gif" className="video-error"/>
+    <img src={errorGif} alt="error gif" className="video-error pt-3"/>
    </div>
    <div className="col-sm-12 col-md-auto star-wars">
    <span className="mt-5 ml-3">

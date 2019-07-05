@@ -11,7 +11,7 @@ const ItemList = (props) => {
     const label = renderLabel(item);
 
     return (
-      <li className="list-group-item list-group-item-action"
+      <li className="list-group-item list-group-item-action "
           key={id}
           onClick={() => onItemSelected(id)}>
         {label}
@@ -20,7 +20,7 @@ const ItemList = (props) => {
   });
 
   return (
-    <ul className="item-list list-group">
+    <ul className="item-list list-group mx-4">
       {items}
     </ul>
   );

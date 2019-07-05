@@ -1,40 +1,14 @@
-import React, { Component } from 'react';
-
-import Row from "../row-left,right"
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 import ErrorWrapping from "../error/error-wrapping"
-import {
-    StarshipsList,
-    StarshipsDetalls } from '../helpe-components'
+import { StarshipsList} from '../helpe-components'
 
-export default class StarshipsPage extends Component {
-    
-constructor(){
-    super();
-    this.state = {
-       idItems: 12
-     };
-
-      this.onIdItems = (id) => {
-        this.setState(() => {
-            return {idItems: id}
-        });
-      }; 
-}
-    render(){
-        const { idItems, } = this.state;
-        const itemList = (
-            <StarshipsList
-            onItemSelected={this.onIdItems}/>);
-        const starshipsDetalls = (
-            <ErrorWrapping>
-            <StarshipsDetalls idItem={idItems}/>
-            </ErrorWrapping>
-        );
-              
+const StarshipsPage = ({history}) => {  
         return(
             <ErrorWrapping> 
-              <Row left={starshipsDetalls} right={itemList}/> 
+             <StarshipsList 
+            onItemSelected={(id) => history.push(id)}/>
             </ErrorWrapping>     
         );
     }
-}
+export default withRouter(StarshipsPage);

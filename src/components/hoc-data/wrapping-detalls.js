@@ -73,7 +73,7 @@ class WrappingDetalls extends Component {
       
           return(
               <ErrorWrapping>
-                <div className="card item-detalls">
+                <div className="card item-detalls mx-4">
                 {errorMess}
                 {spinner}
                 {content}

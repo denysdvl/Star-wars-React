@@ -1,7 +1,7 @@
 {
   "name": "star",
   "version": "0.1.0",
-  "homepage": "http://denysdvl.github.io/Star-wars-React/.",
+  "homepage": "http://denysdvl.github.io/Star-wars-React/",
   "private": false,
   "dependencies": {
     "prop-types": "^15.7.2",
